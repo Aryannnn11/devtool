@@ -1,6 +1,10 @@
 import { readFile, writeFile } from "fs/promises";
 import path from "path";
 import { fileURLToPath } from "url";
+import {
+  createNote,
+  removeNote as removeNoteLogic
+} from "../utils/notes.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -27,16 +31,7 @@ async function saveNotes(notes) {
 async function addNote(text) {
   const notes = await getNotes();
 
-  const newId =
-    notes.length > 0
-      ? Math.max(...notes.map((note) => note.id)) + 1
-      : 1;
-
-  const newNote = {
-    id: newId,
-    text,
-    createdAt: new Date().toISOString()
-  };
+  const newNote = createNote(notes, text);
 
   notes.push(newNote);
 
@@ -48,19 +43,14 @@ async function addNote(text) {
 async function removeNote(id) {
   const notes = await getNotes();
 
-  const noteId = Number(id);
+  const { notes: updatedNotes, removedNote } =
+    removeNoteLogic(notes, id);
 
-  const noteIndex = notes.findIndex(
-    (note) => note.id === noteId
-  );
-
-  if (noteIndex === -1) {
+  if (!removedNote) {
     return null;
   }
 
-  const removedNote = notes.splice(noteIndex, 1)[0];
-
-  await saveNotes(notes);
+  await saveNotes(updatedNotes);
 
   return removedNote;
 }

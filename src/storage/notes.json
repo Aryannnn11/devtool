@@ -38,5 +38,25 @@
     "id": 9,
     "text": "Second note",
     "createdAt": "2026-08-08T23:07:16.880Z"
+  },
+  {
+    "id": 10,
+    "text": "Test note",
+    "createdAt": "2026-08-08T23:25:02.592Z"
+  },
+  {
+    "id": 11,
+    "text": "First note",
+    "createdAt": "2026-08-08T23:25:02.600Z"
+  },
+  {
+    "id": 12,
+    "text": "Second note",
+    "createdAt": "2026-08-08T23:25:02.603Z"
+  },
+  {
+    "id": 13,
+    "text": "CLI polish",
+    "createdAt": "2026-08-08T23:32:43.263Z"
   }
 ]

@@ -1,25 +1,62 @@
 import { describe, it, expect } from "vitest";
-import { addNote, removeNote } from "../src/storage/notes.js";
+import {
+  createNote,
+  removeNote
+} from "../src/utils/notes.js";
 
-describe("Notes", () => {
-  it("should create a note", async () => {
-    const note = await addNote("Test note");
+describe("Note logic", () => {
+  it("should create a new note", () => {
+    const notes = [
+      {
+        id: 1,
+        text: "Learn JavaScript",
+        createdAt: "2026-08-09"
+      }
+    ];
 
-    expect(note).toHaveProperty("id");
-    expect(note.text).toBe("Test note");
+    const note = createNote(notes, "Learn Node.js");
+
+    expect(note.id).toBe(2);
+    expect(note.text).toBe("Learn Node.js");
     expect(note).toHaveProperty("createdAt");
   });
 
-  it("should create notes with different IDs", async () => {
-    const note1 = await addNote("First note");
-    const note2 = await addNote("Second note");
+  it("should create the first note with ID 1", () => {
+    const note = createNote([], "First note");
 
-    expect(note1.id).not.toBe(note2.id);
+    expect(note.id).toBe(1);
   });
 
-  it("should return null when removing a missing note", async () => {
-    const result = await removeNote(999999);
+  it("should remove a note", () => {
+    const notes = [
+      {
+        id: 1,
+        text: "Learn JavaScript"
+      },
+      {
+        id: 2,
+        text: "Learn Node.js"
+      }
+    ];
 
-    expect(result).toBeNull();
+    const result = removeNote(notes, 1);
+
+    expect(result.removedNote.text).toBe("Learn JavaScript");
+    expect(result.notes).toHaveLength(1);
+    expect(result.notes[0].id).toBe(2);
+  });
+
+  it("should return null when note does not exist", () => {
+    const notes = [
+      {
+        id: 1,
+        text: "Learn JavaScript"
+      }
+    ];
+
+    const result = removeNote(notes, 999);
+
+    expect(result.removedNote).toBeNull();
+    expect(result.notes).toHaveLength(1);
   });
 });

@@ -1,5 +1,10 @@
 import { Command } from "commander";
 import {
+  success,
+  error,
+  info
+} from "../utils/output.js";
+import {
   getNotes,
   addNote,
   removeNote
@@ -17,9 +22,9 @@ noteCommand
     try {
       const note = await addNote(text);
 
-      console.log(`✓ Note added: "${note.text}"`);
+      success(`Note added: "${note.text}"`);
     } catch {
-      console.log("Unable to add note.");
+      error("Unable to add note.");
     }
   });
 
@@ -35,7 +40,7 @@ noteCommand
         return;
       }
 
-      console.log("\nYour Notes:\n");
+      info("\nYour Notes:\n");
 
       notes.forEach((note) => {
         console.log(`[${note.id}] ${note.text}`);
@@ -43,7 +48,7 @@ noteCommand
         console.log();
       });
     } catch {
-      console.log("Unable to load notes.");
+      error("Unable to load notes.");
     }
   });
 
@@ -56,11 +61,11 @@ noteCommand
       const removedNote = await removeNote(id);
 
       if (!removedNote) {
-        console.log(`Note with ID ${id} not found.`);
+        error(`Note with ID ${id} not found.`);
         return;
       }
 
-      console.log(`✓ Removed note: "${removedNote.text}"`);
+      success(`Removed note: "${removedNote.text}"`);
     } catch {
       console.log("Unable to remove note.");
     }
