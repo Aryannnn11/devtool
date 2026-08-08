@@ -1,0 +1,42 @@
+[
+  {
+    "id": 2,
+    "text": "learn node.js",
+    "createdAt": "2026-08-08T19:21:32.806Z"
+  },
+  {
+    "id": 3,
+    "text": "Refactor notes",
+    "createdAt": "2026-08-08T23:04:42.199Z"
+  },
+  {
+    "id": 4,
+    "text": "Test note",
+    "createdAt": "2026-08-08T23:06:25.215Z"
+  },
+  {
+    "id": 5,
+    "text": "First note",
+    "createdAt": "2026-08-08T23:06:25.220Z"
+  },
+  {
+    "id": 6,
+    "text": "Second note",
+    "createdAt": "2026-08-08T23:06:25.222Z"
+  },
+  {
+    "id": 7,
+    "text": "Test note",
+    "createdAt": "2026-08-08T23:07:16.867Z"
+  },
+  {
+    "id": 8,
+    "text": "First note",
+    "createdAt": "2026-08-08T23:07:16.877Z"
+  },
+  {
+    "id": 9,
+    "text": "Second note",
+    "createdAt": "2026-08-08T23:07:16.880Z"
+  }
+]
