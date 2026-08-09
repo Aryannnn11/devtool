@@ -31,7 +31,7 @@ DevTool provides a collection of useful utilities directly from the terminal, in
 Clone the repository and install dependencies:
 
 ```bash
-git clone <your-repository-url>
+git clone https://github.com/Aryannnn11/devtool.git
 
 cd devTool
 
