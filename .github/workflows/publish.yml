@@ -41,6 +41,11 @@ jobs:
             exit 1
           fi
 
+      - name: Verify npm registry authentication
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm whoami --registry=https://registry.npmjs.org/
+
       - name: Publish public package with provenance
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
