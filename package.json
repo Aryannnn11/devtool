@@ -1,5 +1,5 @@
 {
-  "name": "devtool",
+  "name": "aryan-devtool-cli",
   "version": "1.0.0",
   "description": "Developer Productivity CLI",
   "type": "module",
@@ -7,7 +7,7 @@
     "devtool": "./bin/devtool.js"
   },
   "scripts": {
-    "test": "vitest",
+    "test": "vitest run",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
@@ -29,5 +29,12 @@
     "eslint": "^9.34.0",
     "prettier": "^3.6.2",
     "vitest": "^3.2.4"
+  },
+  "files": [
+    "bin",
+    "src"
+  ],
+  "engines": {
+    "node": ">=20"
   }
 }
