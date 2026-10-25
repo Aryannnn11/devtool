@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d16">
+  <meta name="description" content="Interactive browser demo of DevTool, the developer productivity CLI.">
+  <title>DevTool — Interactive Terminal</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./app.js" defer></script>
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <a class="brand" href="https://github.com/Aryannnn11/devtool" target="_blank" rel="noopener noreferrer"><span class="brand-icon">›_</span> DevTool<span class="version">v1.0</span></a>
+      <nav class="links" aria-label="Project links">
+        <a href="https://www.npmjs.com/package/aryan-devtool-cli" target="_blank" rel="noopener noreferrer">npm package ↗</a>
+        <a href="https://github.com/Aryannnn11/devtool" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+      </nav>
+    </header>
+    <main>
+      <div class="intro">
+        <p class="eyebrow"><span class="live-dot"></span> Interactive playground · No installation</p>
+        <h1>Your developer toolbox.<br><span>Right in the browser.</span></h1>
+        <p class="subtitle">Explore DevTool commands in a safe, terminal-style sandbox. For full filesystem access, install the real CLI from npm.</p>
+        <div class="actions">
+          <button class="chip" data-cmd="help">help</button>
+          <button class="chip" data-cmd="uuid">uuid</button>
+          <button class="chip" data-cmd="github Aryannnn11/devtool">github lookup</button>
+          <button class="chip" data-cmd="json format example.json">format JSON</button>
+          <button class="chip" data-cmd="note list">my notes</button>
+        </div>
+      </div>
+      <section class="terminal" aria-label="Interactive command terminal">
+        <div class="terminal-top">
+          <div class="window-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+          <span>devtool — browser playground</span>
+          <button id="clear" title="Clear terminal output">Clear</button>
+        </div>
+        <div id="output" class="output" role="log" aria-live="polite" aria-relevant="additions text"></div>
+        <form id="command-form" autocomplete="off">
+          <label for="command" class="prompt">visitor@devtool <span>~</span> $</label>
+          <input id="command" type="text" autocapitalize="off" spellcheck="false" aria-label="DevTool command" placeholder="Type help to begin…" maxlength="1000">
+          <button type="submit" class="run">Run ↵</button>
+        </form>
+      </section>
+      <div class="below">
+        <p><span class="hint">TIP</span> ↑ / ↓ to navigate command history · <kbd>Tab</kbd> to autocomplete · <code>clear</code> to reset output</p>
+        <p><span class="hint">SANDBOX</span> Notes stay in your browser. File commands use sample files only. GitHub lookups use the public GitHub API.</p>
+      </div>
+    </main>
+    <footer>Built with Node.js · Commander.js · JavaScript <span>Browser demo of <a href="https://www.npmjs.com/package/aryan-devtool-cli" target="_blank" rel="noopener noreferrer">aryan-devtool-cli</a></span></footer>
+  </div>
+</body>
+</html>
